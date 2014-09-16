@@ -2,10 +2,14 @@
 
 angular.module('app')
 
-.controller('BreadcrumbsCtrl', function($scope, $location) {
+.controller('BreadcrumbsCtrl', function($scope, $routeParams, itemService) {
   $scope.$on('$routeChangeSuccess', function() {
-    if ($location.path() === '/') {
-      $scope.$root.current = { url: '/' };
+    if ($routeParams.id) {
+      itemService.one($routeParams.id).then(function(item) {
+        $scope.current = item;
+      });
+    } else {
+      $scope.current = null;
     }
   });
 });

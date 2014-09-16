@@ -20,6 +20,8 @@ angular.module('app', [
   });
 })
 
+.value('modelCache', {})
+
 .run(function($http, apiVersion) {
   $http.defaults.headers.common['x-client-version'] = apiVersion;
 });
