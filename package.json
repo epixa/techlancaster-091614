@@ -1,0 +1,16 @@
+{
+  "name": "TechLancaster",
+  "version": "0.0.0-unreleasable",
+  "private": true,
+  "dependencies": {
+    "body-parser": "1.8.x",
+    "ejs": "1.0.x",
+    "express": "4.9.x",
+    "extend": "1.3.x",
+    "q": "1.0.x",
+    "underscore": "1.7.x"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}

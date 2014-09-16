@@ -1,0 +1,59 @@
+header {
+  background-color: #ddd;
+  padding: 15px 30px;
+}
+
+header > h1 {
+  display: inline-block;
+  padding-right: 50px;
+}
+
+h2 {
+  display: inline-block;
+  padding-right: 20px;
+}
+
+a {
+  color: blue;
+  cursor: pointer;
+}
+
+label {
+  display: inline-block;
+  width: 100px;
+}
+
+input {
+  width: 300px;
+}
+textarea {
+  height: 50px;
+  width: 305px;
+}
+button {
+  height: 50px;
+  font-size: 24px;
+  display: inline-block;
+  margin-left: 105px;
+  margin-right: 15px;
+}
+form a {
+  display: inline-block;
+}
+
+form div {
+  padding: 20px 0 0 10px;
+}
+
+.breadcrumbs {
+  display: inline-block;
+}
+
+.breadcrumbs {
+  list-style: none;
+}
+
+.breadcrumbs li {
+  display: inline-block;
+  padding-right: 5px;
+}
