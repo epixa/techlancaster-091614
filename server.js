@@ -22,6 +22,12 @@ api.get('/items', function(req, res) {
 api.get('/items/:id', function(req, res) {
   return res.json(items.filter(function(item) { return item.id == req.params.id; }).pop());
 });
+api.post('/items', bodyParser.json(), function(req, res) {
+  var item = extend({}, req.body);
+  item.id = nextId();
+  items.push(item);
+  res.status(201).json(item);
+});
 api.put('/items/:id', bodyParser.json(), function(req, res) {
   var item = items.filter(function(item) { return item.id == req.params.id; }).pop();
   extend(item, req.body);
@@ -29,7 +35,15 @@ api.put('/items/:id', bodyParser.json(), function(req, res) {
     res.json(item);
   }, 3000);
 });
-
+api.delete('/items/:id', function(req, res) {
+  items.some(function(item, index) {
+    if (item.id == req.params.id) {
+      items.slice(index, 1);
+      return true;
+    }
+  });
+  res.status(204);
+})
 
 
 
@@ -48,6 +62,11 @@ app.listen(3000);
 
 
 
+function nextId() {
+  return items
+    .map(function(item) {return item.id; })
+    .reduce(function(id, previd) { return id > previd ? id : previd; }, 0) + 1;
+}
 
 function jsSrcPaths(basePath, localPath) {
   localPath || (localPath = '');

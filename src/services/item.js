@@ -18,6 +18,9 @@ angular.module('app')
       return $http.put('/api/items/' + id, data)
         .then(extract)
         .then(modelIt);
+    },
+    delete: function(id) {
+      return $http.delete('/api/items/' + id, data);
     }
   };
 
