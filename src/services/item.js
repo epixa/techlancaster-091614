@@ -2,7 +2,7 @@
 
 angular.module('app')
 
-.factory('itemService', function($http) {
+.factory('itemService', function($http, $window) {
   var service = {
     all: function() {
       return $http.get('/api/items').then(extract).then(function(items) {

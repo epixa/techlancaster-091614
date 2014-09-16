@@ -11,6 +11,6 @@
     "underscore": "1.7.x"
   },
   "scripts": {
-    "start": "node index.js"
+    "start": "node server.js"
   }
 }
