@@ -1,7 +1,5 @@
 'use strict';
 
-var API_VERSION = '1';
-
 var fs = require('fs');
 var _ = require('underscore');
 var extend = require('extend');
@@ -12,14 +10,6 @@ var app = express();
 
 var api = express.Router();
 app.use('/api', api);
-
-api.use(function(req, res, next) {
-  if (req.headers['x-client-version'] !== API_VERSION) {
-    return res.status(400).json({ error: 'client-out-of-date' });
-  }
-  res.set('x-api-version', API_VERSION);
-  next();
-});
 
 var items = [
   {id: 1, name: "My Item", description: "This is mine. Ain't nobody else's."},
@@ -49,7 +39,7 @@ app.use('/static/', express.static(__dirname + '/src'));
 
 app.get('*', function(req, res) {
   jsSrcPaths(__dirname + '/src').then(function(files) {
-    res.render('app', { js: files, apiVersion: API_VERSION });
+    res.render('app', { js: files });
   });
 });
 

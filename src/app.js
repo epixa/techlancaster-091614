@@ -4,22 +4,6 @@ angular.module('app', [
   'ngRoute'
 ])
 
-.config(function($locationProvider, $httpProvider) {
+.config(function($locationProvider) {
   $locationProvider.html5Mode(true);
-
-  $httpProvider.interceptors.push(function($window, $q) {
-    return {
-      responseError: function(response) {
-        if (response.status === 400 && response.data.error === 'client-out-of-date') {
-          alert('Client version is out of date, refreshing');
-          $window.location = $window.location;
-        }
-        return $q.reject(response);
-      }
-    };
-  });
-})
-
-.run(function($http, apiVersion) {
-  $http.defaults.headers.common['x-client-version'] = apiVersion;
 });
