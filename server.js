@@ -1,6 +1,6 @@
 'use strict';
 
-var API_VERSION = '3';
+var API_VERSION = '1';
 
 var fs = require('fs');
 var _ = require('underscore');
