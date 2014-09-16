@@ -7,8 +7,6 @@ angular.module('app', [
 .config(function($locationProvider, $httpProvider) {
   $locationProvider.html5Mode(true);
 
-  $httpProvider.defaults
-
   $httpProvider.interceptors.push(function($window, $q) {
     return {
       responseError: function(response) {
